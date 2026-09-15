@@ -7,48 +7,35 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Obra {
+public class RevelacaoContato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
-
-    private String cidade;
-
-    private String segmento;
-
     @ManyToOne
     private Empresa empresa;
 
-    public Obra() {
+    @ManyToOne
+    private Contato contato;
+
+    public RevelacaoContato() {
     }
 
-    public Obra(String nome, String cidade, String segmento, Empresa empresa) {
-        this.nome = nome;
-        this.cidade = cidade;
-        this.segmento = segmento;
+    public RevelacaoContato(Empresa empresa, Contato contato) {
         this.empresa = empresa;
+        this.contato = contato;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public String getSegmento() {
-        return segmento;
-    }
-
     public Empresa getEmpresa() {
         return empresa;
+    }
+
+    public Contato getContato() {
+        return contato;
     }
 }

@@ -4,12 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!--
-        Spring Boot 3.5.x: mesma linha que o Spring AI 1.1.x suporta.
-        O Spring AI 2.x já exige Spring Boot 4, então ficamos na linha
-        compatível com o Boot 3 (a mesma que você está migrando o
-        ConstruConnect para usar).
-    -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -45,8 +39,6 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Starter que traz o servidor MCP (transporte Streamable HTTP)
-             e já habilita a leitura das anotações @McpTool/@McpToolParam -->
         <dependency>
             <groupId>org.springframework.ai</groupId>
             <artifactId>spring-ai-starter-mcp-server-webmvc</artifactId>
@@ -56,6 +48,21 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- OAuth2: nosso próprio app vira Authorization Server (emite token)
+             e também Resource Server (valida o token no /mcp) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-authorization-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
         </dependency>
     </dependencies>
 

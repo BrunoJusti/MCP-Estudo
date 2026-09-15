@@ -18,14 +18,26 @@ public class Empresa {
 
     private String segmento;
 
+    private Integer creditosEmailRadar;
+
+    private String apiKey;
+
+    private String loginUsername;
+
+    private String loginPassword;
+
     public Empresa() {
-        // construtor exigido pelo JPA
     }
 
-    public Empresa(String cnpj, String razaoSocial, String segmento) {
+    public Empresa(String cnpj, String razaoSocial, String segmento, Integer creditosEmailRadar,
+                   String apiKey, String loginUsername, String loginPassword) {
         this.cnpj = cnpj;
         this.razaoSocial = razaoSocial;
         this.segmento = segmento;
+        this.creditosEmailRadar = creditosEmailRadar;
+        this.apiKey = apiKey;
+        this.loginUsername = loginUsername;
+        this.loginPassword = loginPassword;
     }
 
     public Long getId() {
@@ -42,5 +54,25 @@ public class Empresa {
 
     public String getSegmento() {
         return segmento;
+    }
+
+    public Integer getCreditosEmailRadar() {
+        return creditosEmailRadar;
+    }
+
+    public void setCreditosEmailRadar(Integer creditosEmailRadar) {
+        this.creditosEmailRadar = creditosEmailRadar;
+    }
+
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public String getLoginUsername() {
+        return loginUsername;
+    }
+
+    public String getLoginPassword() {
+        return loginPassword;
     }
 }

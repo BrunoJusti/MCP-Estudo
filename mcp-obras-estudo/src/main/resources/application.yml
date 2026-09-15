@@ -22,9 +22,17 @@ spring:
       server:
         name: mcp-obras-estudo
         version: 0.0.1
-        # Streamable HTTP é o transporte padrão/atual (SSE está deprecado).
-        # O servidor fica escutando em /mcp na porta abaixo.
         protocol: STREAMABLE
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080
+
+logging:
+  level:
+    org.springframework.security.web.FilterChainProxy: DEBUG
 
 server:
   port: 8080

@@ -8,4 +8,8 @@ import java.util.Optional;
 public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
 
     Optional<Empresa> findByCnpj(String cnpj);
+
+    Optional<Empresa> findByApiKey(String apiKey);
+
+    Optional<Empresa> findByLoginUsername(String loginUsername);
 }
